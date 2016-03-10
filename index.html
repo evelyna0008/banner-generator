@@ -8,23 +8,34 @@
   <script>
     $(function() {
       $('button').click(function(){
+        $("#bgp").fadeIn("slow");
       var userName = $("#nombre").val();
       $("#name").html(userName);
-      $("input:radio[name=bg]").click(function(){
-      var value = $(this).val();
-    $("#bgp").css("background-image", value);
-      });
+      var bgradio = $("input[name='bg']:checked").val();
+      // alert(bgradio);
+      $('#bgp').css('background-image', 'url(' + bgradio + ')');
+    var txtC = $("input[name='color']:checked").val();
+    $("#name").css("color", txtC);
+    
       });
     });
   </script>
-  <style>
-
-  </style>
+<style>
+  #bgp {
+    background-size:cover;
+    height: 500px;
+    display:none;
+  }
+  #name{
+    font-size: 100px;
+    text-align: center;
+  }
+</style>
 </head>
 
 <body>
   <h1>Banner Generator!</h1>
-    <div id="bgp">
+    <div id="bgp" >
 
       <h1 id="name"></h1>
       
@@ -33,23 +44,21 @@
   <input type="text" id="nombre">
   <br> Choose a background:
   <br>
-  <input type="radio" name="bg"><img class="clouds" src="cloudss.jpg" width=100px height=70px>
+  <input type="radio" name="bg" value='cloudss.jpg'><img class="clouds" src="cloudss.jpg" width=100px height=70px>
   <br>
-  <input type="radio" name="bg"><img class="forest" src="forest.jpg" width=100px height=70px>
+  <input type="radio" name="bg" value='forest.jpg'><img class="forest" src="forest.jpg" width=100px height=70px>
   <br>
-  <input type="radio" name="bg"><img class="sunset" src="sunset.jpg" width=100px height=70px>
+  <input type="radio" name="bg" value='sunset.jpg'><img class="sunset" src="sunset.jpg" width=100px height=70px>
   <br> Choose a Text Color:
   <br>
-  <input type="radio" name="color">Black
+  <input type="radio" name="color" value="black">Black
   <br>
-  <input type="radio" name="color">White
+  <input type="radio" name="color" value="white">White
   <br>
-  <input type="radio" name="color">Blue
+  <input type="radio" name="color" value="blue">Blue
   <br>
   <button>Make Banner!</button>
-  <div id="bgp">
-    
-  </div>
+
 
 </body>
 
