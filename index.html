@@ -10,9 +10,12 @@
       $('button').click(function(){
       var userName = $("#nombre").val();
       $("#name").html(userName);
+      $("input:radio[name=bg]").click(function(){
+      var value = $(this).val();
+    $("#bgp").css("background-image", value);
       });
       });
-    
+    });
   </script>
   <style>
 
@@ -26,17 +29,15 @@
       <h1 id="name"></h1>
       
     </div>
-  
-  
   Name:
   <input type="text" id="nombre">
   <br> Choose a background:
   <br>
-  <input type="radio" name="bg1"><img class="clouds" src="cloudss.jpg" width=80px height=60px>
+  <input type="radio" name="bg"><img class="clouds" src="cloudss.jpg" width=100px height=70px>
   <br>
-  <input type="radio" name="bg2"><img class="forest" src="forest.jpg" width=80px height=60px>
+  <input type="radio" name="bg"><img class="forest" src="forest.jpg" width=100px height=70px>
   <br>
-  <input type="radio" name="bg3"><img class="forest" src="sunset.jpg" width=80px height=60px>
+  <input type="radio" name="bg"><img class="sunset" src="sunset.jpg" width=100px height=70px>
   <br> Choose a Text Color:
   <br>
   <input type="radio" name="color">Black
