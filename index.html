@@ -7,39 +7,41 @@
   <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <script>
     $(function() {
-      $('button').click(function(){
-        $("#bgp").fadeIn("slow");
-      var userName = $("#nombre").val();
-      $("#name").html(userName);
-      var bgradio = $("input[name='bg']:checked").val();
-      
-      $('#bgp').css('background-image', 'url(' + bgradio + ')');
-    var txtC = $("input[name='color']:checked").val();
-    $("#name").css("color", txtC);
-    
+      $('button').click(function() {
+        $("#bgp").fadeIn("slow"); //this is for the banner to appear when the user clicks the button, it is put on the top so it is the first thing that loads
+        // this takes what the user typed in the text input and puts it in the h1 inside of the div     
+        $("#name").html(userName);
+        var userName = $("#nombre").val();
+        $("#name").html(userName); // gets id of the h1 tag in the div and puts in the users input
+
+        var bgradio = $("input[name='bg']:checked").val(); //gets the user's choice from radio by checking which of the radio options is checked, it is able to know that the choices are different through the value.
+        $('#bgp').css('background-image', 'url(' + bgradio + ')'); //this selects the divs background and inserts the image that the user chose, "background-image" changes the image, url is used since i was using images and it was concatenated in order to use the picture the user chose  
+
+        var txtC = $("input[name='color']:checked").val(); //gets users choice of color from the radio options.
+        $("#name").css("color", txtC); //takes the h1s css and changes its "color" based on what the users choice was.
+
       });
     });
   </script>
-<style>
-  #bgp {
-    background-size:cover;
-    height: 500px;
-    display:none;
-  }
-  #name{
-    font-size: 100px;
-    text-align: center;
-  }
-</style>
+  <style>
+    #bgp {
+      background-size: cover;
+      height: 500px;
+      display: none;
+    }
+    
+    #name {
+      font-size: 100px;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
   <h1>Banner Generator!</h1>
-    <div id="bgp" >
-
-      <h1 id="name"></h1>
-      
-    </div>
+  <div id="bgp">
+    <h1 id="name"></h1>
+  </div>
   Name:
   <input type="text" id="nombre">
   <br> Choose a background:
@@ -58,8 +60,6 @@
   <input type="radio" name="color" value="blue">Blue
   <br>
   <button>Make Banner!</button>
-
-
 </body>
 
 </html>
